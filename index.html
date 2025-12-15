@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>Math Challenge Game</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- Pixel Font -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 html, body {
@@ -29,12 +30,14 @@ html, body {
 }
 
 h1 {
+  font-family: 'Press Start 2P', cursive;
   font-size: 1.6em;
   margin-bottom: 25px;
   color: #4dd0e1;
 }
 
 #task {
+  font-family: 'Press Start 2P', cursive;
   font-size: 1.4em;
   margin: 25px 0;
 }
@@ -123,14 +126,16 @@ function generateTask() {
   let a, b, c, text;
 
   if (pattern === 1) {
+    // (a × b) − c
     a = randomInt(6, 20);
     b = randomInt(4, 15);
     c = randomInt(5, 40);
     correctAnswer = (a * b) - c;
-    text = `(${a} × ${b}) - ${c}`;
+    text = `(${a} × ${b}) − ${c}`;
   }
 
   if (pattern === 2) {
+    // (a + b) × c
     a = randomInt(10, 40);
     b = randomInt(5, 30);
     c = randomInt(2, 8);
@@ -139,11 +144,12 @@ function generateTask() {
   }
 
   if (pattern === 3) {
+    // (a − b) ÷ c
     c = randomInt(2, 6);
     correctAnswer = randomInt(5, 20);
     b = randomInt(5, 30);
     a = (correctAnswer * c) + b;
-    text = `(${a} - ${b}) ÷ ${c}`;
+    text = `(${a} − ${b}) ÷ ${c}`;
   }
 
   document.getElementById("task").textContent = `${text} = ?`;
