@@ -201,13 +201,7 @@ function startWordChain(){
     transition: opacity 0.5s;
   "></div>
 `;
-hint.textContent = "🧠 Nur die richtigen Wörter bringen dich weiter.";
-  hint.style.opacity = "1";
 
-  setTimeout(()=>{
-    hint.style.opacity = "0";
-  }, 3000);
-}
   function showWordChainHint(){
   const hint = document.getElementById('wordHint');
   if(!hint) return; 
@@ -216,6 +210,16 @@ hint.textContent = "🧠 Nur die richtigen Wörter bringen dich weiter.";
   "Quantum","Syntax","Recursion","Neural","Topology",
   "Cognition","Spectrum","Vector","Matrix","Anomaly",
   "Threshold","Resonance","Asymmetry","Continuum","Parable"];
+function showWordChainHint(){
+  const hint = document.getElementById('wordHint');
+  if(!hint) return;
+
+  hint.textContent = "🧠 Nur die richtigen Wörter bringen dich weiter.";
+  hint.style.opacity = "1";
+
+  setTimeout(()=>{
+    hint.style.opacity = "0";
+  }, 3000);
 }
   
 function playWord(){
@@ -248,7 +252,9 @@ if(word.slice(-1).toLowerCase() === lastTwo[0]){
   input.value=''; message.textContent='';
   setTimeout(aiTurn,500);
 }
-function aiTurn(){
+function aiTurn(){setTimeout(showWordChainHint, 5000);
+    return;
+  }
   const lastChar = currentWord.slice(-1).toLowerCase();
   let possible = wordList.filter(
   function aiTurn(){
