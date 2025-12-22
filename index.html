@@ -388,7 +388,22 @@ function startChromaticTrial(){
   <h1></h1>
 
     <div id="grid"></div>
-
+<div id="chromaticWinText" style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1em;
+  color: #4dd0e1;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s;
+  pointer-events: none;
+">
+  🧠 Color found.<br>
+  Returning to start...
+</div>
     <div id="chromaticText" style="
       margin-top:15px;
       font-family:'Press Start 2P', cursive;
@@ -447,11 +462,10 @@ function cycleColor(tile){
 function checkWin(){
   const allGoal = tilesCT.every(t => colorsCT[Number(t.dataset.color)] === CHROMATIC_GOAL);
   if(allGoal && !solved){
-    solved = true;
-    clearInterval(chromaticTimerInterval);
-    alert("🫵");
-    setTimeout(restartGame, 500);
-  }
+  solved = true;
+  clearInterval(chromaticTimerInterval);
+  clearTimeout(uniformTimeout);
+  showChromaticWin();
 }
 
 // Prüfen, ob alle Felder die gleiche Farbe haben (nicht unbedingt Ziel-Farbe)
@@ -529,6 +543,16 @@ function showChromaticMessage(){
   gameOver = false;
   correctAnswer = 0;
   correctMathCount = 0;
+}
+function showChromaticWin(){
+  const text = document.getElementById('chromaticWinText');
+  if(!text) return;
+
+  text.style.opacity = "1";
+
+  setTimeout(() => {
+    restartGame();
+  }, 5000); // ⏱ nach 5 Sekunden zurück zum Start
 }
 
 </script>
