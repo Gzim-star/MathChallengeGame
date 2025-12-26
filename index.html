@@ -47,7 +47,7 @@ body {
   background-color: #00000000;
 }
 .modal-content {
-  background-color: #00000000;
+  background-color: #00000000cc;
   margin: 15% auto;
   padding: 20px;
   border-radius: 12px;
@@ -133,9 +133,9 @@ const closeBtn = document.querySelector('.close');
 tipButton.onclick = () => {
   let tipText = '';
   if(stage === 'start') tipText = `
-    BrainTrials:
+  •BrainTrials•
     
-    BrainTrials is a deterministic, rule-based cognitive system designed to validate structured human input under real-time constraints.
+BrainTrials is a deterministic, rule-based cognitive system designed to validate structured human input under real-time constraints.
 
 The system does not rely on dictionaries, artificial intelligence, machine learning, or probabilistic guessing.
 All outcomes are derived exclusively from explicit rules, state transitions, and input validation logic.
@@ -157,9 +157,9 @@ BrainTrials is optimized for instantaneous feedback, ensuring that each action t
 
 Tips: Pay attention to the structure of the system. Logical consistency, awareness of patterns, and strategic foresight are essential to advance. Each game mode builds upon the principles of the previous, requiring both analytical thinking and adaptive strategy.
     
-    You are entering the arena of challenges!
-    Only those who think cleverly, react quickly, and recognize patterns can reach the end.
-  `;
+You are entering the arena of challenges!
+Only those who think cleverly, react quickly, and recognize patterns can reach the end.
+`;
 
   else if(stage === 'word') tipText = `
       Word Chain Tips:
@@ -184,8 +184,6 @@ Tips: Pay attention to the structure of the system. Logical consistency, awarene
   else if(stage === 'math') tipText = `
       Math Challenge Tips:
     
-      • Follow order 
-      • Of operations
       • Solve quickly 
       • Time is running!
       • Correct answers 
