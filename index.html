@@ -29,7 +29,7 @@ body {
   right: 20px;
   background: none;
   border: none;
-  color: whith;
+  color: white;
   font-size: 28px;
   cursor: pointer;
   z-index: 1000;
@@ -53,13 +53,13 @@ body {
   border-radius: 12px;
   width: 80%;
   max-width: 400px;
-  color: whith;
+  color: white;
   text-align: left;
   max-height: 70vh; /* maximale Höhe */
   overflow-y: auto;  /* scrollen, wenn Text zu lang ist */
 }
 .close {
-  color: whith;
+  color: white;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -100,11 +100,12 @@ button:hover { background: #00000000; }
 .modal-content li {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.8em;
-  color: whith;
+  color: white;
+}
 .modal.open {
   display: block;
- }
 }
+
 </style>
 </head>
 <body>
@@ -236,13 +237,17 @@ are essential to advance.
     </ul>
   `;
   tipModal.querySelector('p').innerHTML = tipText;
-  tipModal.style.display = 'block';
+  
 };
 
-closeBtn.onclick = () => tipModal.style.display = 'none';
+closeBtn.onclick = () => {
+  tipModal.classList.remove('open');
+};
 
-window.onclick = (e) => { 
-  if(e.target === tipModal) tipModal.style.display = 'none';
+window.onclick = (e) => {
+  if (e.target === tipModal) {
+    tipModal.classList.remove('open');
+  }
 };
   
 // ========================== VARIABLES ==========================
